@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'PNC_2_0_back',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,13 +76,25 @@ WSGI_APPLICATION = 'PNC_2_0_back.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# myproject/settings.py
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pnc',
+        'USER': 'postgres',
+        'PASSWORD': 'AnaTaf37',
+        'HOST': 'localhost',  # Ou l'adresse IP de votre serveur PostgreSQL
+        'PORT': '5432',       # Le port par défaut de PostgreSQL
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

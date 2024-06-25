@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import hello_world, goodbye_world, custom_message
+from .views import *
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_world, name='hello_world'),
-    path('goodbye/', goodbye_world, name='goodbye_world'),
-    path('custom/', custom_message, name='custom_message'),
+    path('allEntity/<int:nbPage>/', getAllEntitePaginate, name='all_entity_paginate'),
+    path('allProfil/<int:nbPage>/', getAllProfilPaginate, name='all_profil_paginate'),
+    path('allProfil/', getAllProfil, name='all_profil'),
 ]

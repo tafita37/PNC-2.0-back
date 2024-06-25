@@ -5,7 +5,7 @@ create table entite(
     id_entite serial primary key, 
     nom_entite varchar(30) unique not null, 
     code_entite varchar(3) unique not null, 
-    email_entite varchar(3) unique not null
+    email_entite varchar(30) unique not null
 );
 
 create table  profil(
@@ -21,7 +21,7 @@ create table utilisateur(
     nom_utilisateur varchar(30) not null, 
     prenom varchar(30) not null, 
     email varchar(30) not null, 
-    mdp varchar(30) not null
+    mdp text not null
 );
 
 create table inculpation(

@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "95c2ac99-615c-429a-9538-8b04da967859",
+		"name": "pnc-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30773243"
+	},
+	"item": [
+		{
+			"name": "HelloWorld Test api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/hello",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer toutes les entités",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/allEntity/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"allEntity",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
