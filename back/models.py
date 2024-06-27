@@ -11,7 +11,7 @@ class AuthUser(AbstractUser):
     titre = models.CharField(max_length=30)
     nom_utilisateur = models.CharField(max_length=30)
     prenom = models.CharField(max_length=30)
-    email = models.CharField(max_length=30, unique=True)
+    email = models.TextField(unique=True)
     password = models.TextField()
     
     username=None
@@ -22,6 +22,7 @@ class AuthUser(AbstractUser):
     is_staff=None
     is_active=True
     date_joined=None
+    mdp=None
 
     USERNAME_FIELD='email'
     REQUIRED_FIELDS=[]

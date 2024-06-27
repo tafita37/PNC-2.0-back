@@ -110,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_entite\" : 1,\r\n    \"id_profil\" : 1,\r\n    \"titre\" : \"titre\",\r\n    \"nom_utilisateur\":\"Nom1\",\r\n    \"prenom\":\"Prenom1\",\r\n    \"email\":\"Email12\",\r\n    \"password\" : \"0000\"\r\n}",
+					"raw": "{\r\n    \"id_entite\" : 1,\r\n    \"id_profil\" : 1,\r\n    \"titre\" : \"titre\",\r\n    \"nom_utilisateur\":\"Nom1\",\r\n    \"prenom\":\"Prenom1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -155,7 +155,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"Email12\",\r\n    \"password\":\"0000\"\r\n}",
+					"raw": "{\r\n    \"email\": \"prenom1.nom1.fiu.profil1@pnc.mg\",\r\n    \"password\":\"yi@B%UkY!c\\\"^F:$Zrvh>\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,6 +223,24 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Tout les utilisateurs paginées",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/allUser/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"allUser",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -251,6 +269,11 @@
 		{
 			"key": "base_url",
 			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token\n",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5NTI3MjQxLCJpYXQiOjE3MTk1MjAwNDEsImp0aSI6IjYwYTZhMTBjYzRkZDRhNGU5ODY4MjQ1ZTVkNzk5NDVhIiwidXNlcl9pZCI6NX0.KQnAjKrGSVoMMCFo2mnvS_kHzDtI8PCtW0kqlw8CtNU",
 			"type": "string"
 		}
 	]

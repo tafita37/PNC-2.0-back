@@ -3,7 +3,7 @@ create database pnc;
 
 create table entite(
     id_entite serial primary key, 
-    nom_entite varchar(30) unique not null, 
+    nom_entite text unique not null, 
     code_entite varchar(3) unique not null, 
     email_entite varchar(30) unique not null
 );
@@ -20,7 +20,7 @@ create table utilisateur(
     titre varchar(30) not null, 
     nom_utilisateur varchar(30) not null, 
     prenom varchar(30) not null, 
-    email varchar(30) not null, 
+    email text not null, 
     password text not null
 );
 

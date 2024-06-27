@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_simplejwt',
     'rest_framework',
     'PNC_2_0_back',
     'corsheaders',
@@ -47,6 +49,12 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+}
+
+SIMPLE_JWT = {
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),  # Durée de vie du refresh token
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+    'ROTATE_REFRESH_TOKENS': True,
 }
 
 MIDDLEWARE = [
@@ -146,7 +154,7 @@ LOGGING = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
