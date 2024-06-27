@@ -15,13 +15,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from .views import *
+from .controller.TestController import *
+from .controller.EntiteController import *
+from back.controller.AuthController import getUserConnected
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_world, name='hello_world'),
     path('allEntity/<int:nbPage>/', getAllEntitePaginate, name='all_entity_paginate'),
     path('allProfil/<int:nbPage>/', getAllProfilPaginate, name='all_profil_paginate'),
+    path('allEntity/', getAllEntite, name='all_entity_paginate'),
+    path('allProfil/', getAllProfil, name='all_profil_paginate'),
     path('allProfil/', getAllProfil, name='all_profil'),
+    path('auth/', include('back.url.AuthUrl')),
+    path('allUser/', getAllUtilisateur, name="all_user"),
+    path('userConnected/', getUserConnected, name="user_connected")
 ]

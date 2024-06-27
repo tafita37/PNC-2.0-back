@@ -24,7 +24,7 @@
 			"response": []
 		},
 		{
-			"name": "Récupérer toutes les entités",
+			"name": "Récupérer toutes les entités paginées",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -36,6 +36,189 @@
 					"path": [
 						"allEntity",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer toutes les entités",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5NDUwNTE0LCJpYXQiOjE3MTk0NTAyMTQsImp0aSI6IjJmODE4MjBiMTI0NDQxMGY4MDAwYjQwZGYxZWU4M2QzIiwidXNlcl9pZCI6MX0.fGDae6nCRN07H9L33gJ9-Y60DG_qtNIVWS_If1d7l0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/allEntity",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"allEntity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer tout les profils paginées",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/allProfil/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"allProfil",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer tout les profil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/allProfil",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"allProfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inscription avec token et hachage mdp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_entite\" : 1,\r\n    \"id_profil\" : 1,\r\n    \"titre\" : \"titre\",\r\n    \"nom_utilisateur\":\"Nom1\",\r\n    \"prenom\":\"Prenom1\",\r\n    \"email\":\"Email12\",\r\n    \"password\" : \"0000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/register/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tout les utilisateurs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/allUser",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"allUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login utilisateur",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Email12\",\r\n    \"password\":\"0000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/login/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer utilisateur connectée",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZXhwIjoxNzE5NDUxODcwLCJpYXQiOjE3MTk0NDgyNzB9.n8q_dMhBp27WECR9-eokqcSyi_L2ApTreql3yxGJcTs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/userConnected",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"userConnected"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deconnexion",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/auth/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"logout"
 					]
 				}
 			},
