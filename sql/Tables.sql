@@ -17,7 +17,6 @@ create table utilisateur(
     id serial primary key, 
     id_entite int references entite(id_entite) not null, 
     id_profil int references profil(id_profil), 
-    titre varchar(30) not null, 
     nom_utilisateur varchar(30) not null, 
     prenom varchar(30) not null, 
     email text not null, 

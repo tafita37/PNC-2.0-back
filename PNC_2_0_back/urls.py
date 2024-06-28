@@ -31,6 +31,7 @@ urlpatterns = [
     path('allProfil/', getAllProfil, name='all_profil'),
     path('auth/', include('back.url.AuthUrl')),
     path('allUser/', getAllUtilisateur, name="all_user"),
+    path('nbPageUser/', getNbPagesUtilisateur, name="nb_pages_user"),
     path('allUser/<int:nbPage>', getAllUtilisateurPaginate, name="all_user_paginate"),
     path('userConnected/', getUserConnected, name="user_connected")
 ]

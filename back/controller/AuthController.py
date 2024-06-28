@@ -20,7 +20,7 @@ def inscription(request) :
     entite=Entite.objects.filter(id_entite=request.data["id_entite"]).first()
     profil=Profil.objects.filter(id_profil=request.data["id_profil"]).first()
     request.data["password"]=password
-    request.data["email"]=request.data["prenom"]+"."+request.data["nom_utilisateur"]+"."+entite.code_entite+"."+profil.nom_profil+"@pnc.mg"
+    request.data["email"]=request.data["prenom"].strip().replace(" ", ".")+"."+request.data["nom_utilisateur"].strip().replace(" ", ".")+"."+entite.code_entite.strip().replace(" ", ".")+"."+profil.nom_profil+"@pnc.mg"
     request.data["email"]=request.data["email"].lower()
     serializer=SignUserSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)

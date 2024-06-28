@@ -9,7 +9,7 @@ class AuthUserSerializer(serializers.ModelSerializer):
     id_profil = ProfilSerializer()
     class Meta:
         model = AuthUser
-        fields = ['id', 'id_entite', 'id_profil', 'titre', 'nom_utilisateur', 'prenom', 'email', 'password']
+        fields = ['id', 'id_entite', 'id_profil', 'nom_utilisateur', 'prenom', 'email', 'password']
         extra_kwargs = {
             'password' : {'write_only' : True}
         }
@@ -26,7 +26,7 @@ class AuthUserSerializer(serializers.ModelSerializer):
 class SignUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = AuthUser
-        fields = ['id', 'id_entite', 'id_profil', 'titre', 'nom_utilisateur', 'prenom', 'email', 'password']
+        fields = ['id', 'id_entite', 'id_profil', 'nom_utilisateur', 'prenom', 'email', 'password']
         extra_kwargs = {
             'password' : {'write_only' : True}
         }
