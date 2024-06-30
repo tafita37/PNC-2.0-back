@@ -37,5 +37,16 @@ class SignUserSerializer(serializers.ModelSerializer):
         if password is not None :
             instance.set_password(password)
         instance.save()
-        return instance
+        return instance        
         
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        if 'id_entite' in ret :
+            ret['en'] = ret.pop('id_entite')
+        if 'id_profil' in ret :
+            ret['profil'] = ret.pop('id_profil')
+        if 'code_entite' in ret :
+            ret['code'] = ret.pop('code_entite')
+        if 'email_entite' in ret :
+            ret['email'] = ret.pop('email_entite')
+        return ret
