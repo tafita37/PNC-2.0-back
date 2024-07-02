@@ -17,10 +17,10 @@ import string
 def inscription(request) :
     chars = string.ascii_letters + string.digits + string.punctuation
     password = get_random_string(20, chars)
-    entite=Entite.objects.filter(id_entite=request.data["id_entite"]).first()
-    profil=Profil.objects.filter(id_profil=request.data["id_profil"]).first()
+    entite=Entite.objects.filter(idEntite=request.data["entite"]).first()
+    profil=Profil.objects.filter(idProfil=request.data["profil"]).first()
     request.data["password"]=password
-    request.data["email"]=request.data["prenom"].strip().replace(" ", ".")+"."+request.data["nom_utilisateur"].strip().replace(" ", ".")+"."+entite.code_entite.strip().replace(" ", ".")+"."+profil.nom_profil+"@pnc.mg"
+    request.data["email"]=request.data["prenom"].strip().replace(" ", ".")+"."+request.data["nomUtilisateur"].strip().replace(" ", ".")+"."+entite.codeEntite.strip().replace(" ", ".")+"."+profil.nomProfil+"@pnc.mg"
     request.data["email"]=request.data["email"].lower()
     serializer=SignUserSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)

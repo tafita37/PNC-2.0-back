@@ -5,11 +5,11 @@ from PNC_2_0_back.serializer.EntiteSerializer import EntiteSerializer
 from PNC_2_0_back.serializer.ProfilSerializer import ProfilSerializer
 
 class AuthUserSerializer(serializers.ModelSerializer):
-    id_entite = EntiteSerializer()
-    id_profil = ProfilSerializer()
+    entite = EntiteSerializer(fields=['idEntite', 'nomEntite'])
+    profil = ProfilSerializer()
     class Meta:
         model = AuthUser
-        fields = ['id', 'id_entite', 'id_profil', 'nom_utilisateur', 'prenom', 'email', 'password']
+        fields = ['id', 'entite', 'profil', 'nomUtilisateur', 'prenom', 'email', 'password']
         extra_kwargs = {
             'password' : {'write_only' : True}
         }
@@ -20,13 +20,29 @@ class AuthUserSerializer(serializers.ModelSerializer):
         if password is not None :
             instance.set_password(password)
         instance.save()
-        return instance
+        return instance    
+        
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        if 'entite' in ret :
+            ret['ent'] = ret.pop('entite')
+        if 'profil' in ret :
+            ret['pro'] = ret.pop('profil')
+        if 'nomUtilisateur' in ret :
+            ret['nom'] = ret.pop('nomUtilisateur')
+        if 'prenom' in ret :
+            ret['pre'] = ret.pop('prenom')
+        if 'email' in ret :
+            ret['ema'] = ret.pop('email')
+        if 'password' in ret :
+            ret['pas'] = ret.pop('password')
+        return ret
         
 
 class SignUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = AuthUser
-        fields = ['id', 'id_entite', 'id_profil', 'nom_utilisateur', 'prenom', 'email', 'password']
+        fields = ['id', 'entite', 'profil', 'nomUtilisateur', 'prenom', 'email', 'password']
         extra_kwargs = {
             'password' : {'write_only' : True}
         }
@@ -37,16 +53,4 @@ class SignUserSerializer(serializers.ModelSerializer):
         if password is not None :
             instance.set_password(password)
         instance.save()
-        return instance        
-        
-    def to_representation(self, instance):
-        ret = super().to_representation(instance)
-        if 'id_entite' in ret :
-            ret['en'] = ret.pop('id_entite')
-        if 'id_profil' in ret :
-            ret['profil'] = ret.pop('id_profil')
-        if 'code_entite' in ret :
-            ret['code'] = ret.pop('code_entite')
-        if 'email_entite' in ret :
-            ret['email'] = ret.pop('email_entite')
-        return ret
+        return instance    

@@ -25,7 +25,7 @@ def getAllProfilPaginate(request, nbPage) :
 # @permission_classes([IsAuthenticated])
 def getAllEntite(request):
     entites = Entite.objects.raw("SELECT id_entite, nom_entite FROM entite")
-    serializer = EntiteSerializer(entites, many=True, fields=['id_entite', 'nom_entite'])
+    serializer = EntiteSerializer(entites, many=True, fields=['idEntite', 'nomEntite'])
     return Response({"datas": serializer.data}, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
@@ -52,6 +52,7 @@ def getAllProfil(request) :
     return Response({"datas": serializer.data}, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def getAllEntitePaginate(request, nbPage) :
     rows = Entite.objects.raw("SELECT * FROM entite LIMIT 20 OFFSET %s", [(nbPage-1)*20])
     serializer = EntiteSerializer(rows, many=True)
@@ -71,6 +72,18 @@ def getNbPagesUtilisateur(request) :
         {
             "datas": {
                 "nbPages" : get_nb_pages('utilisateur')
+            }
+        }, 
+        status=status.HTTP_200_OK
+    )
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getNbPagesEntity(request) :
+    return Response(
+        {
+            "datas": {
+                "nbPages" : get_nb_pages('entite')
             }
         }, 
         status=status.HTTP_200_OK

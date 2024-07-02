@@ -23,18 +23,31 @@ class EntiteSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         ret = super().to_representation(instance)
         # Renommer les champs dans la représentation
-        if 'id_entite' in ret :
-            ret['id'] = ret.pop('id_entite')
-        if 'nom_entite' in ret :
-            ret['nom'] = ret.pop('nom_entite')
-        if 'code_entite' in ret :
-            ret['code'] = ret.pop('code_entite')
-        if 'email_entite' in ret :
-            ret['email'] = ret.pop('email_entite')
+        if 'idEntite' in ret :
+            ret['id'] = ret.pop('idEntite')
+        if 'nomEntite' in ret :
+            ret['nom'] = ret.pop('nomEntite')
+        if 'codeEntite' in ret :
+            ret['cod'] = ret.pop('codeEntite')
+        if 'emailEntite' in ret :
+            ret['ema'] = ret.pop('emailEntite')
         return ret
 
 
 class EntiteSelectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Entite
-        fields = ['id_entite', 'nom_entite']
+        fields = ['idEntite', 'nomEntite']
+        
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        # Renommer les champs dans la représentation
+        if 'idEntite' in ret :
+            ret['id'] = ret.pop('idEntite')
+        if 'nomEntite' in ret :
+            ret['nom'] = ret.pop('nomEntite')
+        if 'codeEntite' in ret :
+            ret['code'] = ret.pop('codeEntite')
+        if 'emailEntite' in ret :
+            ret['email'] = ret.pop('emailEntite')
+        return ret

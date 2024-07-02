@@ -9,8 +9,8 @@ class ProfilSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         ret = super().to_representation(instance)
         # Renommer les champs dans la représentation
-        if 'id_profil' in ret :
-            ret['id'] = ret.pop('id_profil')
-        if 'nom_profil' in ret :
-            ret['nom'] = ret.pop('nom_profil')
+        if 'idProfil' in ret :
+            ret['id'] = ret.pop('idProfil')
+        if 'nomProfil' in ret :
+            ret['nom'] = ret.pop('nomProfil')
         return ret
