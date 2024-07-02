@@ -26,6 +26,16 @@
 		{
 			"name": "Récupérer toutes les entités paginées",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token\n}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -100,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_entite\" : 1,\r\n    \"id_profil\" : 1,\r\n    \"nom_utilisateur\":\"Nom2\",\r\n    \"prenom\":\"Prenom1\"\r\n}",
+					"raw": "{\r\n    \"entite\" : 1,\r\n    \"profil\" : 1,\r\n    \"nomUtilisateur\":\"Nom2\",\r\n    \"prenom\":\"Prenom3\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -227,6 +237,16 @@
 		{
 			"name": "Tout les utilisateurs paginées",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token\n}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -268,6 +288,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Nombre de pages d'entites",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token\n}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/nbPageEntity",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"nbPageEntity"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -300,7 +347,7 @@
 		},
 		{
 			"key": "token\n",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5NjA3Mzc5LCJpYXQiOjE3MTk2MDAxNzksImp0aSI6IjcyNGFjYjgxZDQ0OTQwY2U4NTIxMmRjYzI1YWQ3MzMzIiwidXNlcl9pZCI6NX0.Ev3Oj5fWUMviWJYF6-bN3FAycyJ9JWGxBsh2s4dMux8",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5ODY5OTEyLCJpYXQiOjE3MTk4NjI3MTIsImp0aSI6ImI4NTA4MTRkYjdjNjRiYWE4MjZlNTc4ODljZjY2MzMzIiwidXNlcl9pZCI6NX0.5IS8e-DINyztQ2jHfF4srTk2ZNsqrOSuvUVrw9WbK6Q",
 			"type": "string"
 		}
 	]
